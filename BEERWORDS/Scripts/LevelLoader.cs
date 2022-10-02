@@ -24,11 +24,6 @@ public class LevelLoader : MonoBehaviour
         LoadMainMenu();
     }
 
-    public void LoadLevelCompletedScene()
-    {
-        SceneManager.LoadScene("Level Completed");
-    }
-
     public void LoadNextLevel()
     {
         
