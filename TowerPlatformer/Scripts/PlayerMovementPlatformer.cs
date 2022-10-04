@@ -9,7 +9,6 @@ public class PlayerMovementPlatformer : MonoBehaviour
     [SerializeField] private float jumpSpeed = 5f;
     [SerializeField] private float climbSpeed = 5f;
     [SerializeField] private GameObject startPos;
-  //  [SerializeField] Animator healthUIAnimator;
 
     //Cached
     private Animator animator;
@@ -112,13 +111,4 @@ public class PlayerMovementPlatformer : MonoBehaviour
     {
         return startPos.transform.position;
     }
-
-
-
-
-
-
-
-
-
 }

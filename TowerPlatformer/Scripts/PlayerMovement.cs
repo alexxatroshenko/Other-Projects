@@ -31,7 +31,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Jump()
     {
-
+        Debug.Log("jump()");
+        Debug.Log(isGrounded);
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         isGrounded = false;
 

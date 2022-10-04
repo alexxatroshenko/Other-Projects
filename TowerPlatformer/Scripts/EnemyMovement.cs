@@ -22,11 +22,7 @@ public class EnemyMovement : MonoBehaviour
   
     void Update()
     {
-        if(IsFacingRight())
-            rb.velocity = new Vector2(-moveSpeed, 0);
-        else
-            rb.velocity = new Vector2(moveSpeed, 0);
-
+        Move();
     }
 
     private bool IsFacingRight()
@@ -36,8 +32,17 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
-
         transform.localScale = new Vector2((Mathf.Sign(rb.velocity.x)), 1f);
     }
+
+    private void Move()
+    {
+        if(IsFacingRight())
+            rb.velocity = new Vector2(-moveSpeed, 0);
+        else
+            rb.velocity = new Vector2(moveSpeed, 0);
+    }
+
+	
+
 }
