@@ -43,11 +43,6 @@ public class WordsArray : MonoBehaviour, IPointerExitHandler,  IPointerUpHandler
 
     }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-
-    }
-
     public bool IsTheWordRight()
     {
         CombineInputedStrings();
@@ -105,7 +100,7 @@ public class WordsArray : MonoBehaviour, IPointerExitHandler,  IPointerUpHandler
         audioSource.PlayOneShot(levelDrunk);
         yield return new WaitForSeconds(secondsToWait / 2);
         GameObject outro = Instantiate(particlesOutro, new Vector2(transform.position.x - outroParticlesOffsetX, transform.position.y - outroParticlesOffsetY),
-            Quaternion.Euler(-90f,0f,0f) /*new Quaternion(transform.rotation.x -90f, transform.rotation.y, transform.rotation.z)*/);
+            Quaternion.Euler(-90f,0f,0f));
         yield return new WaitForSeconds(secondsToWait * 2);
         FindObjectOfType<LevelLoader>().LoadNextLevel();
     }
@@ -116,6 +111,4 @@ public class WordsArray : MonoBehaviour, IPointerExitHandler,  IPointerUpHandler
         combinedString = string.Join("", inputedStrings);
     }
 
-    //неправильно удаляет буквы при возврате обратно
-    //если слово не угадано, то можно заходить на закрашенную зону (решение: удалять не последнее,а все до выделенного закрашенного)
 }

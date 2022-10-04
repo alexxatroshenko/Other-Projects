@@ -41,11 +41,6 @@ public class PaintChar : MonoBehaviour, IPointerExitHandler, IPointerDownHandler
         mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         worldMousePos = Camera.main.ScreenToWorldPoint(mousePos);
         gridPos = SnapToGrid(worldMousePos);
-        //Touch touch = Input.GetTouch(0);
-        //touchCoords.text = touch.position.x + " " + touch.position.y;
-        //mousePos = new Vector2(touch.position.x, touch.position.y);
-        //worldMousePos = Camera.main.ScreenToWorldPoint(mousePos);
-        //gridPos = SnapToGrid(worldMousePos);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -55,9 +50,6 @@ public class PaintChar : MonoBehaviour, IPointerExitHandler, IPointerDownHandler
             if (matrixChars[(int)gridPos.x, (int)gridPos.y].GetComponent<SpriteRenderer>().color == new Color32(229, 190, 68, 255))
             {
                 matrixChars[(int)startGridPos.x, (int)startGridPos.y].GetComponent<SpriteRenderer>().color = new Color32(137, 130, 108, 255);
-                //Debug.Log(inputedChars.IndexOf(matrixChars[(int)gridPos.x, (int)gridPos.y]));
-                //inputedChars.RemoveRange(inputedChars.IndexOf(matrixChars[(int)gridPos.x, (int)gridPos.y]), inputedChars.IndexOf(matrixChars[(int)startGridPos.x, (int)startGridPos.y]) + 1);
-                //перевести matrixchars[] в стринг и тоже удалять
                 inputedChars.Remove(inputedChars[inputedString.Count - 1]);
                 inputedString.Remove(inputedString[inputedString.Count - 1]);
                 if(wordsArr.GetRightWords().Contains(matrixChars[(int)gridPos.x, (int)gridPos.y]))
